@@ -18,7 +18,7 @@ module.exports.saveTodo = function (req, res) {
 module.exports.deleteTodo = function (req, res) {
     var item = Todo.findOne({
         item: req.params.item.replace(/-/g, " ")
-    }).remove(function (error, data) {
+    }).deleteOne(function (error, data) {
         if (error) throw  error;
         res.json(data);
     });
